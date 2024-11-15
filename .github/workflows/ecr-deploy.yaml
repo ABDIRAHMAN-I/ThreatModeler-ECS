@@ -31,10 +31,10 @@ jobs:
 
       run: |
         
-        docker build -t threat-model-app .
+        docker build -t $AWS_ECR_REGISTRY/AWS_ECR_REPOSITORY:latest .
 
        
-        docker tag my-application $AWS_ECR_REGISTRY/AWS_ECR_REPOSITORY:latest .
+        docker tag my-application $AWS_ECR_REGISTRY/AWS_ECR_REPOSITORY:latest 
 
         
         docker push $AWS_ECR_REGISTRY/AWS_ECR_REPOSITORY:latest

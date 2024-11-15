@@ -32,8 +32,8 @@ jobs:
 
       run: |
         docker build -t threat-model-app:latest ./app
-        docker tag threat-model-app:latest $AWS_ECR_REGISTRY/threat-model-project:latest
-        docker push $AWS_ECR_REGISTRY/threat-model-project:latest
+        docker tag threat-model-app:latest 977098994448.dkr.ecr.eu-west-2.amazonaws.com/threat-model-project:latest
+        docker push 977098994448.dkr.ecr.eu-west-2.amazonaws.com/threat-model-project:latest
 
     - name: Clean up post build
       run: docker rmi $AWS_ECR_REGISTRY/threat-model-project:latest

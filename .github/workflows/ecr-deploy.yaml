@@ -25,7 +25,7 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1  
 
     - name: Build, tag, and push image to Amazon ECR
-      working-directory: ./app
+      working-directory: .
       env:
         AWS_ECR_REGISTRY: 977098994448.dkr.ecr.eu-west-2.amazonaws.com 
         # AWS_ECR_REPOSITORY: threat-model-project

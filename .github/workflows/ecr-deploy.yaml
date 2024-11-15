@@ -41,3 +41,5 @@ jobs:
 
     - name: Clean up post build
       run: docker rmi $AWS_ECR_REGISTRY/AWS_ECR_REPOSITORY:latest
+
+      

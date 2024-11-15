@@ -32,7 +32,7 @@ jobs:
 
       run: |
         docker build -t threat-model-app:latest ./app
-        docker tag threat-model-app:latest AWS_ECR_REGISTRY/threat-model-project:latest
+        docker tag threat-model-app:latest $AWS_ECR_REGISTRY/threat-model-project:latest
         docker push $AWS_ECR_REGISTRY/threat-model-project:latest
 
     - name: Clean up post build

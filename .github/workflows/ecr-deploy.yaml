@@ -31,12 +31,8 @@ jobs:
 
       run: |
         
-        docker build -t $AWS_ECR_REGISTRY/AWS_ECR_REPOSITORY:latest ./app
+        docker build -t $AWS_ECR_REGISTRY/AWS_ECR_REPOSITORY:latest .
 
-       
-        docker tag threat-model-project $AWS_ECR_REGISTRY/AWS_ECR_REPOSITORY:latest
-
-        
         docker push $AWS_ECR_REGISTRY/AWS_ECR_REPOSITORY:latest
 
     - name: Clean up post build

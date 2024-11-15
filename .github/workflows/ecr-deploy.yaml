@@ -19,7 +19,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1 
+        aws-region: us-west-2
 
     - name: Login to Amazon ECR
       uses: aws-actions/amazon-ecr-login@v1  
@@ -28,8 +28,7 @@ jobs:
       working-directory: .
       env:
        AWS_ECR_REGISTRY: 977098994448.dkr.ecr.eu-west-2.amazonaws.com/threat-model-project
-      #AWS_ECR_REPOSITORY: threat-model-project
-
+      
       run: |
         docker build -t threat-model-app:latest ./app
         docker tag threat-model-app:latest $AWS_ECR_REGISTRY:latest

@@ -31,7 +31,7 @@ jobs:
 
       run: |
         
-        docker build -t $AWS_ECR_REGISTRY/AWS_ECR_REPOSITORY:latest .
+        docker build -t $AWS_ECR_REGISTRY/AWS_ECR_REPOSITORY:latest ./app
 
        
         docker tag my-application $AWS_ECR_REGISTRY/AWS_ECR_REPOSITORY:latest 

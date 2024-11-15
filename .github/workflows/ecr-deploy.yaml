@@ -36,5 +36,5 @@ jobs:
         docker push $AWS_ECR_REGISTRY/threat-model-project:latest
 
     - name: Clean up post build
-      run: docker rmi $AWS_ECR_REGISTRY/AWS_ECR_REPOSITORY
+      run: docker rmi $AWS_ECR_REGISTRY/threat-model-project:latest
 

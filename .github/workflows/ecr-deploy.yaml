@@ -28,12 +28,12 @@ jobs:
       working-directory: .
       env:
        AWS_ECR_REGISTRY: 977098994448.dkr.ecr.eu-west-2.amazonaws.com 
-        # AWS_ECR_REPOSITORY: threat-model-project
+      #AWS_ECR_REPOSITORY: threat-model-project
 
       run: |
         docker build -t threat-model-app:latest ./app
         docker tag threat-model-app:latest $AWS_ECR_REGISTRY/threat-model-project:latest
-        docker push $AWS_ECR_REGISTRY/threat-model-project:latest
+        docker push $AWS_ECR_REGISTRY:latest
 
 
     - name: Clean up post build

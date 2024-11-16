@@ -27,8 +27,8 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       working-directory: .
       env:
-       AWS_ECR_REGISTRY: 977098994448.dkr.ecr.eu-west-2.amazonaws.com/threat-model-project
-      
+       AWS_ECR_REGISTRY: ${{ secrets.AWS_ECR_REGISTRY }}
+       
       run: |
         docker build -t threat-model-app:latest ./app
         docker tag threat-model-app:latest $AWS_ECR_REGISTRY:latest

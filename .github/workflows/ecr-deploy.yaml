@@ -34,7 +34,6 @@ jobs:
         docker tag threat-model-app:latest $AWS_ECR_REGISTRY:latest
         docker push $AWS_ECR_REGISTRY:latest
 
-
-    - name: Clean up post build
-      run: docker rmi $AWS_ECR_REGISTRY:latest
+        # Clean up the local Docker image
+        docker rmi $AWS_ECR_REGISTRY:latest
 

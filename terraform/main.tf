@@ -33,7 +33,7 @@ module "ecs" {
   task_cpu           = "1024"
   task_memory        = "3072"
   container_name     = "threatmodel"
-  container_image    = "7977098994448.dkr.ecr.eu-west-2.amazonaws.com/threat-model-project"
+  container_image    = "977098994448.dkr.ecr.eu-west-2.amazonaws.com/threat-model-project"
   container_port     = 3000
   service_name       = "tm-service"
   desired_count      = 1

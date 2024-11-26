@@ -12,25 +12,28 @@ resource "aws_ecs_task_definition" "tm_task" {
   memory                   = var.task_memory
   execution_role_arn       = var.execution_role_arn
   task_role_arn            = var.task_role_arn
-  container_definitions    = jsonencode([
-    {
+  container_definitions    = jsonencode([{
+    
       name      = var.container_name
       image     = var.container_image
-      cpu       = 0
+      cpu       = var.task_cpu
       memory    = var.task_memory
       essential = true
       
-      portMappings = [
-        {
+      portMappings = [{
           containerPort = var.container_port
           hostPort      = var.container_port
-        }
-      ]
-    }
-])
-}
+          protocol      = "tcp"
+        }]
+     
+      }])
 
 
+runtime_platform {
+    cpu_architecture        = "X86_64"
+    operating_system_family = "LINUX"
+     }
+   }
 
 
 resource "aws_ecs_service" "tm_service" {

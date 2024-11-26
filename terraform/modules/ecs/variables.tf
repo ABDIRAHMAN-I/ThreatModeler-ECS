@@ -19,7 +19,7 @@ variable "task_cpu" {
 variable "task_memory" {
   description = "Memory (MiB) for the ECS Task"
   type = number
-  default = "2048"
+  default = "3072"
 }
 
 

@@ -19,18 +19,12 @@ resource "aws_lb_target_group" "tm-tg" {
   vpc_id      = var.vpc_id
   target_type = "ip"
 
-  health_check {
-    path                = "/health"
-    interval            = 30
-    timeout             = 5
-    healthy_threshold   = 2
-    unhealthy_threshold = 2
   }
-}
+
 
 resource "aws_lb_listener" "listener_http" {
   load_balancer_arn = aws_lb.tm-lb.arn
-  port              = 80
+  port              = "80"
   protocol          = "HTTP"
 
   default_action {
@@ -46,7 +40,7 @@ resource "aws_lb_listener" "listener_http" {
 
 resource "aws_lb_listener" "listener_https" {
   load_balancer_arn = aws_lb.tm-lb.arn
-  port              = 443
+  port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
   certificate_arn   = var.certificate_arn

@@ -28,9 +28,8 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1  
 
     - name: Lint Dockerfile
-      working-directory: /app
+      working-directory: ./app
       run: docker run --rm -i hadolint/hadolint < dockerfile
-
 
      
     - name: Build Docker image

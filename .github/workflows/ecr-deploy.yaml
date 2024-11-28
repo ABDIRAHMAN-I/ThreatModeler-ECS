@@ -30,11 +30,13 @@ jobs:
     - name: Lint Dockerfile
       working-directory: ./app
       run: docker run --rm -i hadolint/hadolint < dockerfile
-
      
     - name: Build Docker image
       run: |
         docker build -t threat-model-app:latest ./app
+
+      env:
+       AWS_ECR_REGISTRY: ${{ secrets.AWS_ECR_REGISTRY }}
 
     - name: Tag and Push Docker image to ECR  
       run: |

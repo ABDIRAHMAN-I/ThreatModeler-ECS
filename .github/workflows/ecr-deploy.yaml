@@ -34,7 +34,7 @@ jobs:
      
     - name: Build Docker image
       run: |
-        docker build -t ${{ secrets.AWS_ECR_REGISTRY }}
+        docker build -t $AWS_ECR_REGISTRY:latest
 
     - name: Tag and Push Docker image to ECR  
       run: |

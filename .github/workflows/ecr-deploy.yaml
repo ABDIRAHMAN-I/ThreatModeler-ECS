@@ -34,7 +34,7 @@ jobs:
      
     - name: Build Docker image
       run: |
-        docker build -t $AWS_ECR_REGISTRY:latest
+        docker build -t threat-model-app:latest ./app
 
     - name: Tag and Push Docker image to ECR  
       run: |

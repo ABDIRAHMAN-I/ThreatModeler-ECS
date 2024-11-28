@@ -40,7 +40,7 @@ jobs:
 
     - name: Tag and Push Docker image to ECR  
       run: |
-        docker tag threat-model-app:latest $AWS_ECR_REGISTRY:latest
+        docker tag threat-model-app:latest $AWS_ECR_REGISTRY
         docker push $AWS_ECR_REGISTRY:latest
 
         docker rmi $AWS_ECR_REGISTRY:latest

@@ -20,31 +20,25 @@ jobs:
         aws-region: eu-west-2
 
     
-      env:
-         AWS_ECR_REGISTRY: ${{ secrets.AWS_ECR_REGISTRY }}
-        
-
+    
     - name: Login to Amazon ECR
       uses: aws-actions/amazon-ecr-login@v1  
 
-    - name: Lint Dockerfile
-      working-directory: ./app
-      run: docker run --rm -i hadolint/hadolint < dockerfile
-     
-    - name: Build Docker image
-      run: |
-        docker build -t threat-model-app:latest ./app
-
+    - name: Build, tag, and push image to Amazon ECR
+      working-directory: .
       env:
-       AWS_ECR_REGISTRY: 977098994448.dkr.ecr.eu-west-2.amazonaws.com/threat-model-project
+       AWS_ECR_REGISTRY: ${{ secrets.AWS_ECR_REGISTRY }}
 
-    - name: Tag and Push Docker image to ECR  
       run: |
+        docker build -t threat-model-app:latest ./app 
         docker tag threat-model-app:latest $AWS_ECR_REGISTRY
         docker push $AWS_ECR_REGISTRY:latest
 
         docker rmi $AWS_ECR_REGISTRY:latest
 
+    - name: Lint Dockerfile
+      working-directory: ./app
+      run: docker run --rm -i hadolint/hadolint < dockerfile
 
     - name: Scan Docker Image with Trivy
       uses: aquasecurity/trivy-action@master

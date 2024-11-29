@@ -31,7 +31,7 @@ jobs:
 
       run: |
         docker build -t threat-model-app:latest ./app 
-        docker tag threat-model-app:latest
+        docker tag threat-model-app:latest $AWS_ECR_REGISTRY:latest
         docker push $AWS_ECR_REGISTRY:latest
 
         docker rmi $AWS_ECR_REGISTRY:latest

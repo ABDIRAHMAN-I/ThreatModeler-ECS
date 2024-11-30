@@ -46,3 +46,4 @@ jobs:
         image-ref: threat-model-app:latest $AWS_ECR_REGISTRY:latest
         format: 'table'
         severity: 'CRITICAL,HIGH'
+        

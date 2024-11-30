@@ -46,7 +46,6 @@ jobs:
       working-directory: ./terraform
         curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
       
-
     - name: Verify Trivy Installation
       run: trivy --version
       working-directory: ./terraform

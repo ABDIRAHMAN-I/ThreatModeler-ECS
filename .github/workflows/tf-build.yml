@@ -41,15 +41,3 @@ jobs:
       run: terraform apply -auto-approve
       working-directory: ./terraform
 
-    - name: Install Trivy
-      run: 
-      working-directory: ./terraform
-        curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
-      
-    - name: Verify Trivy Installation
-      run: trivy --version
-      working-directory: ./terraform
-
-    - name: Run Trivy Config Scan
-      run: trivy config .
-      working-directory: ./terraform

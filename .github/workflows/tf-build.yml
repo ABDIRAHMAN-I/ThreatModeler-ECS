@@ -27,15 +27,19 @@ jobs:
 
     - name: Execute terraform init
       run: terraform init
+      working-directory: ./terraform
 
     - name: Execute terraform validate
       run: terraform validate
+      working-directory: ./terraform
 
     - name: Execute terraform plan
       run: terraform plan
+      working-directory: ./terraform
 
     - name: Execute terraform apply 
       run: terraform apply -auto-approve
+      working-directory: ./terraform
 
     - name: Install Trivy
       run: |

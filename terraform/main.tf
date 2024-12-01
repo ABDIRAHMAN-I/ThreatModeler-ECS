@@ -59,3 +59,7 @@ module "route53" {
   alb_dns_name = module.alb.alb_dns_name
   ttl          = 300
 }
+
+module "ecr" {
+  source = "./modules/ecr"
+}

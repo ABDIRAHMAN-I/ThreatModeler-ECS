@@ -12,7 +12,7 @@ The **Threat Model Composer** helps security professionals create, simulate, and
 
 ## **Running Application Screenshot**
 
-![Running-app-screenshot](./images/tm.png)
+![Running-app-screenshot](./images/tm.png) 
 
 ## **Architecture Highlights**
 

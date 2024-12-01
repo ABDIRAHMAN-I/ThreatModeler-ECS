@@ -7,7 +7,7 @@ resource "aws_vpc" "tm_vpc" {
   }
 }
 
-resource "aws_subnet" "tm_subnet" {
+resource "aws_subnet" "tm_public_subnet" {
   count                   = length(var.public_subnet_cidrs)
   vpc_id                  = var.vpc_id
   cidr_block              = var.public_subnet_cidrs[count.index]
@@ -49,8 +49,8 @@ resource "aws_route_table" "tm_route_table" {
 }
 
 resource "aws_route_table_association" "tm_rta" {
-  count          = length(aws_subnet.tm_subnet)
-  subnet_id      = aws_subnet.tm_subnet[count.index].id
+  count          = length(aws_subnet.tm_public_subnet)
+  subnet_id      = aws_subnet.tm_public_subnet[count.index].id
   route_table_id = aws_route_table.tm_route_table.id
 }
 
